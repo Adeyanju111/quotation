@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SolarQuote Pro - Solar Installation Quotation System</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js">
+    </script>
     <style>
         :root {
             --primary: #f57c00;
@@ -26,9 +28,9 @@
             --gray-700: #616161;
             --gray-800: #424242;
             --gray-900: #212121;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
-            --shadow: 0 2px 8px rgba(0,0,0,0.15);
-            --shadow-lg: 0 4px 16px rgba(0,0,0,0.2);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.2);
             --radius: 12px;
             --radius-sm: 8px;
         }
@@ -48,7 +50,6 @@
             line-height: 1.5;
         }
 
-        /* Header */
         .header {
             background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
             color: white;
@@ -92,7 +93,7 @@
             font-size: 10px;
             padding: 3px 8px;
             border-radius: 12px;
-            background: rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.2);
             display: inline-flex;
             align-items: center;
             gap: 4px;
@@ -107,11 +108,15 @@
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+            0%,
+            100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
         }
 
-        /* Page Container */
         .page {
             display: none;
             padding: 16px;
@@ -123,11 +128,16 @@
         }
 
         @keyframes slideUp {
-            from { opacity: 0; transform: translateY(12px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        /* Cards */
         .card {
             background: white;
             border-radius: var(--radius);
@@ -157,7 +167,6 @@
             font-size: 16px;
         }
 
-        /* Stats */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -184,10 +193,21 @@
             height: 100%;
         }
 
-        .stat-card:nth-child(1)::before { background: #1976d2; }
-        .stat-card:nth-child(2)::before { background: #388e3c; }
-        .stat-card:nth-child(3)::before { background: #f57c00; }
-        .stat-card:nth-child(4)::before { background: #7b1fa2; }
+        .stat-card:nth-child(1)::before {
+            background: #1976d2;
+        }
+
+        .stat-card:nth-child(2)::before {
+            background: #388e3c;
+        }
+
+        .stat-card:nth-child(3)::before {
+            background: #f57c00;
+        }
+
+        .stat-card:nth-child(4)::before {
+            background: #7b1fa2;
+        }
 
         .stat-value {
             font-size: 22px;
@@ -203,7 +223,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* Forms */
         .form-group {
             margin-bottom: 14px;
         }
@@ -218,7 +237,9 @@
             letter-spacing: 0.3px;
         }
 
-        .form-input, .form-select, .form-textarea {
+        .form-input,
+        .form-select,
+        .form-textarea {
             width: 100%;
             padding: 10px 14px;
             border: 1.5px solid var(--gray-300);
@@ -229,7 +250,9 @@
             font-family: inherit;
         }
 
-        .form-input:focus, .form-select:focus, .form-textarea:focus {
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
             outline: none;
             border-color: var(--primary);
             background: white;
@@ -254,7 +277,6 @@
             align-items: end;
         }
 
-        /* Buttons */
         .btn {
             padding: 10px 18px;
             border: none;
@@ -331,7 +353,6 @@
             border-radius: 50%;
         }
 
-        /* Items Table */
         .items-table {
             width: 100%;
             border-collapse: collapse;
@@ -349,8 +370,13 @@
             letter-spacing: 0.5px;
         }
 
-        .items-table thead th:first-child { border-radius: 8px 0 0 0; }
-        .items-table thead th:last-child { border-radius: 0 8px 0 0; }
+        .items-table thead th:first-child {
+            border-radius: 8px 0 0 0;
+        }
+
+        .items-table thead th:last-child {
+            border-radius: 0 8px 0 0;
+        }
 
         .items-table tbody td {
             padding: 10px 12px;
@@ -362,8 +388,13 @@
             background: var(--primary-light);
         }
 
-        .items-table .text-right { text-align: right; }
-        .items-table .text-center { text-align: center; }
+        .items-table .text-right {
+            text-align: right;
+        }
+
+        .items-table .text-center {
+            text-align: center;
+        }
 
         .empty-state {
             text-align: center;
@@ -376,7 +407,6 @@
             margin-bottom: 8px;
         }
 
-        /* Totals Section */
         .totals-section {
             background: var(--gray-50);
             padding: 16px;
@@ -400,7 +430,6 @@
             margin-top: 8px;
         }
 
-        /* Material Selector */
         .material-selector {
             background: var(--primary-light);
             padding: 14px;
@@ -409,7 +438,6 @@
             margin-bottom: 16px;
         }
 
-        /* Bottom Navigation */
         .bottom-nav {
             position: fixed;
             bottom: 0;
@@ -419,7 +447,7 @@
             display: flex;
             justify-content: space-around;
             padding: 6px 8px 10px;
-            box-shadow: 0 -2px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.1);
             z-index: 100;
             border-top: 1px solid var(--gray-200);
         }
@@ -467,7 +495,6 @@
             font-weight: 600;
         }
 
-        /* Quote List */
         .quote-item {
             background: white;
             border: 1px solid var(--gray-200);
@@ -530,11 +557,21 @@
             letter-spacing: 0.3px;
         }
 
-        .badge-success { background: var(--success-light); color: var(--success); }
-        .badge-warning { background: #fff8e1; color: #f57f17; }
-        .badge-info { background: #e3f2fd; color: #1565c0; }
+        .badge-success {
+            background: var(--success-light);
+            color: var(--success);
+        }
 
-        /* Search */
+        .badge-warning {
+            background: #fff8e1;
+            color: #f57f17;
+        }
+
+        .badge-info {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
         .search-box {
             position: relative;
             margin-bottom: 16px;
@@ -565,7 +602,6 @@
             color: var(--gray-400);
         }
 
-        /* Modal */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -573,7 +609,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0,0,0,0.6);
+            background: rgba(0, 0, 0, 0.6);
             z-index: 200;
             align-items: center;
             justify-content: center;
@@ -596,8 +632,14 @@
         }
 
         @keyframes modalIn {
-            from { opacity: 0; transform: scale(0.95) translateY(-20px); }
-            to { opacity: 1; transform: scale(1) translateY(0); }
+            from {
+                opacity: 0;
+                transform: scale(0.95) translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
         }
 
         .modal-header {
@@ -642,7 +684,6 @@
             padding: 20px;
         }
 
-        /* Material List */
         .material-item {
             display: flex;
             align-items: center;
@@ -677,7 +718,6 @@
             font-size: 14px;
         }
 
-        /* Toast */
         .toast-container {
             position: fixed;
             top: 20px;
@@ -699,16 +739,29 @@
             max-width: 320px;
         }
 
-        .toast-success { background: var(--success); }
-        .toast-error { background: var(--danger); }
-        .toast-info { background: #1565c0; }
-
-        @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
+        .toast-success {
+            background: var(--success);
         }
 
-        /* Responsive */
+        .toast-error {
+            background: var(--danger);
+        }
+
+        .toast-info {
+            background: #1565c0;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
         @media (max-width: 480px) {
             .form-row {
                 grid-template-columns: 1fr;
@@ -728,9 +781,11 @@
             }
         }
 
-        /* Print */
         @media print {
-            .header, .bottom-nav, .btn, .material-selector {
+            .header,
+            .bottom-nav,
+            .btn,
+            .material-selector {
                 display: none !important;
             }
             body {
@@ -742,20 +797,6 @@
                 border: none;
                 padding: 10px;
             }
-        }
-
-        /* Settings */
-        .settings-section {
-            margin-bottom: 20px;
-        }
-
-        .settings-section h3 {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--gray-700);
-            margin-bottom: 10px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid var(--gray-200);
         }
 
         .toggle-switch {
@@ -795,17 +836,16 @@
             transition: 0.3s;
         }
 
-        input:checked + .toggle-slider {
+        input:checked+.toggle-slider {
             background: var(--success);
         }
 
-        input:checked + .toggle-slider:before {
+        input:checked+.toggle-slider:before {
             transform: translateX(20px);
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header class="header">
         <div class="header-content">
             <div class="header-logo">☀️</div>
@@ -814,100 +854,49 @@
                 <p>Professional Quotation System</p>
             </div>
             <div style="margin-left: auto;">
-                <span class="sync-status" id="sync-status">
-                    <span class="sync-dot"></span> Local
-                </span>
+                <span class="sync-status" id="sync-status"><span class="sync-dot"></span> Local</span>
             </div>
         </div>
     </header>
 
-    <!-- Toast Container -->
     <div class="toast-container" id="toast-container"></div>
 
-    <!-- Dashboard Page -->
+    <!-- Dashboard -->
     <div class="page active" id="page-dashboard">
         <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-value" id="stat-today">0</div>
-                <div class="stat-label">Today's Quotes</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value" id="stat-month">₦0</div>
-                <div class="stat-label">This Month</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value" id="stat-total">0</div>
-                <div class="stat-label">Total Quotes</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value" id="stat-revenue">₦0</div>
-                <div class="stat-label">Total Revenue</div>
+            <div class="stat-card"><div class="stat-value" id="stat-today">0</div><div class="stat-label">Today's Quotes</div></div>
+            <div class="stat-card"><div class="stat-value" id="stat-month">₦0</div><div class="stat-label">This Month</div></div>
+            <div class="stat-card"><div class="stat-value" id="stat-total">0</div><div class="stat-label">Total Quotes</div></div>
+            <div class="stat-card"><div class="stat-value" id="stat-revenue">₦0</div><div class="stat-label">Total Revenue</div></div>
+        </div>
+        <div class="card">
+            <div class="card-header"><span class="icon" style="background:#e3f2fd;">⚡</span> Quick Actions</div>
+            <div style="display:grid; gap:10px;">
+                <button class="btn btn-primary btn-block" onclick="navigateTo('new-quote')">📝 Create New Quotation</button>
+                <button class="btn btn-outline btn-block" onclick="navigateTo('materials')">📦 Manage Materials & Prices</button>
+                <button class="btn btn-outline btn-block" onclick="navigateTo('history')">📋 View Quotation History</button>
             </div>
         </div>
-
         <div class="card">
-            <div class="card-header">
-                <span class="icon" style="background:#e3f2fd;">⚡</span>
-                Quick Actions
-            </div>
-            <div style="display: grid; gap: 10px;">
-                <button class="btn btn-primary btn-block" onclick="navigateTo('new-quote')">
-                    📝 Create New Quotation
-                </button>
-                <button class="btn btn-outline btn-block" onclick="navigateTo('materials')">
-                    📦 Manage Materials & Prices
-                </button>
-                <button class="btn btn-outline btn-block" onclick="navigateTo('history')">
-                    📋 View Quotation History
-                </button>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-header">
-                <span class="icon" style="background:#fff3e0;">🕐</span>
-                Recent Quotations
-            </div>
-            <div id="recent-quotes-list">
-                <div class="empty-state">
-                    <div class="empty-icon">📭</div>
-                    <p>No quotations yet</p>
-                    <button class="btn btn-primary btn-sm" style="margin-top:10px;" onclick="navigateTo('new-quote')">
-                        Create First Quote
-                    </button>
-                </div>
-            </div>
+            <div class="card-header"><span class="icon" style="background:#fff3e0;">🕐</span> Recent Quotations</div>
+            <div id="recent-quotes-list"><div class="empty-state"><div class="empty-icon">📭</div><p>No quotations yet</p></div></div>
         </div>
     </div>
 
-    <!-- New Quotation Page -->
+    <!-- New Quotation -->
     <div class="page" id="page-new-quote">
         <div class="card">
-            <div class="card-header">
-                <span class="icon" style="background:#e8f5e9;">👤</span>
-                Customer Information
-            </div>
+            <div class="card-header"><span class="icon" style="background:#e8f5e9;">👤</span> Customer Information</div>
             <div class="form-row">
-                <div class="form-group">
-                    <label class="form-label">Customer Name *</label>
-                    <input type="text" class="form-input" id="cust-name" placeholder="Full name or company name">
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Phone Number</label>
-                    <input type="tel" class="form-input" id="cust-phone" placeholder="080XXXXXXXX">
-                </div>
+                <div class="form-group"><label class="form-label">Customer Name *</label><input type="text" class="form-input" id="cust-name" placeholder="Full name or company name"></div>
+                <div class="form-group"><label class="form-label">Phone Number</label><input type="tel" class="form-input" id="cust-phone" placeholder="080XXXXXXXX"></div>
             </div>
-            <div class="form-group">
-                <label class="form-label">Address</label>
-                <textarea class="form-textarea" id="cust-address" rows="2" placeholder="Installation address"></textarea>
-            </div>
+            <div class="form-group"><label class="form-label">Address</label><textarea class="form-textarea" id="cust-address" rows="2" placeholder="Installation address"></textarea></div>
+            <div class="form-group"><label class="form-label">Quotation Name (optional)</label><input type="text" class="form-input" id="cust-quote-name" placeholder="e.g., Mr. John's Residence"></div>
+            <div class="form-group"><label class="form-label">Internal Notes</label><textarea class="form-textarea" id="cust-notes" rows="2" placeholder="Notes for internal reference..."></textarea></div>
             <div class="form-row">
-                <div class="form-group">
-                    <label class="form-label">Date</label>
-                    <input type="date" class="form-input" id="quote-date">
-                </div>
-                <div class="form-group">
-                    <label class="form-label">System Type</label>
+                <div class="form-group"><label class="form-label">Date</label><input type="date" class="form-input" id="quote-date"></div>
+                <div class="form-group"><label class="form-label">System Type</label>
                     <select class="form-select" id="system-type">
                         <option value="">Select system type...</option>
                         <option value="Solar Only">Solar Only</option>
@@ -919,232 +908,95 @@
                 </div>
             </div>
         </div>
-
         <div class="card">
-            <div class="card-header">
-                <span class="icon" style="background:#fff3e0;">📦</span>
-                Materials & Items
-            </div>
-
-            <!-- Add Item Section -->
+            <div class="card-header"><span class="icon" style="background:#fff3e0;">📦</span> Materials & Items</div>
             <div class="material-selector">
                 <div class="form-row-3">
-                    <div class="form-group" style="margin-bottom:0;">
-                        <label class="form-label">Select Material</label>
-                        <select class="form-select" id="material-select">
-                            <option value="">Choose material...</option>
-                        </select>
-                    </div>
-                    <div class="form-group" style="margin-bottom:0;">
-                        <label class="form-label">Quantity</label>
-                        <input type="number" class="form-input" id="item-qty" value="1" min="1">
-                    </div>
-                    <button class="btn btn-primary" onclick="addItemToQuote()" style="height:42px;">
-                        + Add
-                    </button>
+                    <div class="form-group" style="margin-bottom:0;"><label class="form-label">Select Material</label><select class="form-select" id="material-select"><option value="">Choose material...</option></select></div>
+                    <div class="form-group" style="margin-bottom:0;"><label class="form-label">Quantity</label><input type="number" class="form-input" id="item-qty" value="1" min="1"></div>
+                    <button class="btn btn-primary" onclick="addItemToQuote()" style="height:42px;">+ Add</button>
                 </div>
             </div>
-
-            <!-- Items Table -->
             <div style="overflow-x:auto;">
                 <table class="items-table" id="items-table">
-                    <thead>
-                        <tr>
-                            <th>Material</th>
-                            <th>Qty</th>
-                            <th>Unit Price</th>
-                            <th>Total</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody id="items-tbody">
-                        <tr>
-                            <td colspan="5">
-                                <div class="empty-state">
-                                    <div class="empty-icon">📋</div>
-                                    <p>Select materials above to add items</p>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
+                    <thead><tr><th>Material</th><th>Qty</th><th>Unit Price</th><th>Total</th><th></th></tr></thead>
+                    <tbody id="items-tbody"><tr><td colspan="5"><div class="empty-state"><div class="empty-icon">📋</div><p>Select materials above to add items</p></div></td></tr></tbody>
                 </table>
             </div>
-
-            <!-- Cost Adjustments -->
             <div class="totals-section">
                 <div class="form-row">
-                    <div class="form-group">
-                        <label class="form-label">Labour Cost (₦)</label>
-                        <input type="number" class="form-input" id="labour-cost" value="0" onchange="calculateTotals()">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Transport (₦)</label>
-                        <input type="number" class="form-input" id="transport-cost" value="0" onchange="calculateTotals()">
-                    </div>
+                    <div class="form-group"><label class="form-label">Labour Cost (₦)</label><input type="number" class="form-input" id="labour-cost" value="0" onchange="calculateTotals()"></div>
+                    <div class="form-group"><label class="form-label">Transport (₦)</label><input type="number" class="form-input" id="transport-cost" value="0" onchange="calculateTotals()"></div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group">
-                        <label class="form-label">Discount (₦)</label>
-                        <input type="number" class="form-input" id="discount-amount" value="0" onchange="calculateTotals()">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">VAT (%)</label>
-                        <input type="number" class="form-input" id="vat-rate" value="7.5" onchange="calculateTotals()">
-                    </div>
+                    <div class="form-group"><label class="form-label">Discount (₦)</label><input type="number" class="form-input" id="discount-amount" value="0" onchange="calculateTotals()"></div>
+                    <div class="form-group"><label class="form-label">VAT (%)</label><input type="number" class="form-input" id="vat-rate" value="7.5" onchange="calculateTotals()"></div>
                 </div>
-                <div class="total-row">
-                    <span>Subtotal (Materials):</span>
-                    <span id="display-subtotal">₦0.00</span>
-                </div>
-                <div class="total-row">
-                    <span>Labour + Transport:</span>
-                    <span id="display-extras">₦0.00</span>
-                </div>
-                <div class="total-row">
-                    <span>VAT Amount:</span>
-                    <span id="display-vat">₦0.00</span>
-                </div>
-                <div class="total-row grand-total">
-                    <span>GRAND TOTAL:</span>
-                    <span id="display-grand-total">₦0.00</span>
-                </div>
+                <div class="total-row"><span>Subtotal (Materials):</span><span id="display-subtotal">₦0.00</span></div>
+                <div class="total-row"><span>Labour + Transport:</span><span id="display-extras">₦0.00</span></div>
+                <div class="total-row"><span>VAT Amount:</span><span id="display-vat">₦0.00</span></div>
+                <div class="total-row grand-total"><span>GRAND TOTAL:</span><span id="display-grand-total">₦0.00</span></div>
             </div>
-
-            <!-- Action Buttons -->
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:16px;">
-                <button class="btn btn-success" onclick="generatePDF()">
-                    📄 Download PDF
-                </button>
-                <button class="btn btn-primary" onclick="saveQuotation()">
-                    💾 Save Quotation
-                </button>
+                <button class="btn btn-success" onclick="generatePDF()">📄 Download PDF</button>
+                <button class="btn btn-primary" onclick="saveQuotation()">💾 Save Quotation</button>
             </div>
-            <button class="btn btn-outline btn-block" style="margin-top:8px;" onclick="clearQuoteForm()">
-                🗑️ Clear Form
-            </button>
+            <button class="btn btn-outline btn-block" style="margin-top:8px;" onclick="clearQuoteForm()">🗑️ Clear Form</button>
         </div>
     </div>
 
-    <!-- History Page -->
+    <!-- History -->
     <div class="page" id="page-history">
-        <div class="search-box">
-            <span class="search-icon">🔍</span>
-            <input type="text" id="search-input" placeholder="Search by customer name, quote number..." oninput="filterQuotes()">
-        </div>
-        <div id="quotes-list-container">
-            <div class="empty-state">
-                <div class="empty-icon">📭</div>
-                <p>No quotations found</p>
-            </div>
-        </div>
+        <div class="search-box"><span class="search-icon">🔍</span><input type="text" id="search-input" placeholder="Search by customer name, quote number..." oninput="filterQuotes()"></div>
+        <div id="quotes-list-container"><div class="empty-state"><div class="empty-icon">📭</div><p>No quotations found</p></div></div>
     </div>
 
-    <!-- Materials Page -->
+    <!-- Materials -->
     <div class="page" id="page-materials">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
             <h3 style="font-size:16px;">📦 Materials & Prices</h3>
             <button class="btn btn-primary btn-sm" onclick="openMaterialForm()">+ Add New</button>
         </div>
-        <div id="materials-list-container">
-            <div class="empty-state">
-                <div class="empty-icon">📦</div>
-                <p>No materials added yet</p>
-                <button class="btn btn-primary btn-sm" style="margin-top:10px;" onclick="openMaterialForm()">
-                    Add First Material
-                </button>
-            </div>
-        </div>
+        <div id="materials-list-container"><div class="empty-state"><div class="empty-icon">📦</div><p>No materials added yet</p></div></div>
     </div>
 
-    <!-- Settings Page -->
+    <!-- Settings -->
     <div class="page" id="page-settings">
         <div class="card">
-            <div class="card-header">
-                <span class="icon" style="background:#e3f2fd;">⚙️</span>
-                Company Settings
-            </div>
-            <div class="form-group">
-                <label class="form-label">Company Name</label>
-                <input type="text" class="form-input" id="setting-company" value="SolarTech Nigeria Ltd.">
-            </div>
-            <div class="form-group">
-                <label class="form-label">Company Address</label>
-                <input type="text" class="form-input" id="setting-address" value="123 Solar Street, Lagos, Nigeria">
-            </div>
-            <div class="form-group">
-                <label class="form-label">Phone</label>
-                <input type="text" class="form-input" id="setting-phone" value="+234 800 000 0000">
-            </div>
-            <div class="form-group">
-                <label class="form-label">Email</label>
-                <input type="email" class="form-input" id="setting-email" value="info@solartech.com.ng">
-            </div>
-            <div class="form-group">
-                <label class="form-label">Bank Details (for PDF)</label>
-                <textarea class="form-textarea" id="setting-bank" rows="2">Bank: GTBank&#10;Account: 0123456789&#10;Name: SolarTech Nigeria Ltd.</textarea>
-            </div>
+            <div class="card-header"><span class="icon" style="background:#e3f2fd;">⚙️</span> Company Settings</div>
+            <div class="form-group"><label class="form-label">Company Name</label><input type="text" class="form-input" id="setting-company" value="SolarTech Nigeria Ltd."></div>
+            <div class="form-group"><label class="form-label">Company Address</label><input type="text" class="form-input" id="setting-address" value="123 Solar Street, Lagos, Nigeria"></div>
+            <div class="form-group"><label class="form-label">Phone</label><input type="text" class="form-input" id="setting-phone" value="+234 800 000 0000"></div>
+            <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-input" id="setting-email" value="info@solartech.com.ng"></div>
+            <div class="form-group"><label class="form-label">Bank Details (for PDF)</label><textarea class="form-textarea" id="setting-bank" rows="2">Bank: GTBank&#10;Account: 0123456789&#10;Name: SolarTech Nigeria Ltd.</textarea></div>
             <button class="btn btn-primary btn-block" onclick="saveSettings()">💾 Save Settings</button>
         </div>
-
         <div class="card">
-            <div class="card-header">
-                <span class="icon" style="background:#fce4ec;">☁️</span>
-                Google Sheets Sync
-            </div>
-            <p style="font-size:13px; color:var(--gray-600); margin-bottom:12px;">
-                Connect to Google Sheets for cloud storage and multi-user access.
-            </p>
-            <div class="form-group">
-                <label class="form-label">Google Apps Script URL</label>
-                <input type="url" class="form-input" id="setting-sheets-url" placeholder="https://script.google.com/macros/s/...">
-            </div>
+            <div class="card-header"><span class="icon" style="background:#fce4ec;">☁️</span> Google Sheets Sync</div>
+            <p style="font-size:13px; color:var(--gray-600); margin-bottom:12px;">Connect to Google Sheets for cloud storage and multi-user access.</p>
+            <div class="form-group"><label class="form-label">Google Apps Script URL</label><input type="url" class="form-input" id="setting-sheets-url" placeholder="https://script.google.com/macros/s/..."></div>
             <button class="btn btn-outline btn-block" onclick="testSheetsConnection()">🔗 Test Connection</button>
             <button class="btn btn-primary btn-block" style="margin-top:8px;" onclick="syncToSheets()">☁️ Sync All Data</button>
         </div>
-
         <div class="card">
-            <div class="card-header">
-                <span class="icon" style="background:#fff3e0;">📊</span>
-                Data Management
-            </div>
+            <div class="card-header"><span class="icon" style="background:#fff3e0;">📊</span> Data Management</div>
             <button class="btn btn-outline btn-block" onclick="exportAllData()">📥 Export All Data (JSON)</button>
-            <button class="btn btn-outline btn-block" style="margin-top:8px;" onclick="document.getElementById('import-file').click()">
-                📤 Import Data (JSON)
-            </button>
+            <button class="btn btn-outline btn-block" style="margin-top:8px;" onclick="document.getElementById('import-file').click()">📤 Import Data (JSON)</button>
             <input type="file" id="import-file" accept=".json" style="display:none;" onchange="importAllData(event)">
             <button class="btn btn-danger btn-block" style="margin-top:8px;" onclick="resetAllData()">⚠️ Reset All Data</button>
         </div>
     </div>
 
-    <!-- Material Edit Modal -->
+    <!-- Material Modal -->
     <div class="modal-overlay" id="material-modal">
         <div class="modal">
-            <div class="modal-header">
-                <h3 id="material-modal-title">Add Material</h3>
-                <button class="modal-close" onclick="closeMaterialForm()">×</button>
-            </div>
+            <div class="modal-header"><h3 id="material-modal-title">Add Material</h3><button class="modal-close" onclick="closeMaterialForm()">×</button></div>
             <div class="modal-body">
                 <input type="hidden" id="edit-material-id">
-                <div class="form-group">
-                    <label class="form-label">Material Name *</label>
-                    <input type="text" class="form-input" id="mat-name" placeholder="e.g., 550W Solar Panel">
-                </div>
+                <div class="form-group"><label class="form-label">Material Name *</label><input type="text" class="form-input" id="mat-name" placeholder="e.g., 550W Solar Panel"></div>
                 <div class="form-row">
-                    <div class="form-group">
-                        <label class="form-label">Unit</label>
-                        <select class="form-select" id="mat-unit">
-                            <option value="pcs">Pieces (pcs)</option>
-                            <option value="meters">Meters (m)</option>
-                            <option value="rolls">Rolls</option>
-                            <option value="sets">Sets</option>
-                            <option value="coils">Coils</option>
-                            <option value="pairs">Pairs</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Price (₦) *</label>
-                        <input type="number" class="form-input" id="mat-price" placeholder="0.00" step="0.01">
-                    </div>
+                    <div class="form-group"><label class="form-label">Unit</label><select class="form-select" id="mat-unit"><option value="pcs">Pieces (pcs)</option><option value="meters">Meters (m)</option><option value="rolls">Rolls</option><option value="sets">Sets</option><option value="coils">Coils</option><option value="pairs">Pairs</option></select></div>
+                    <div class="form-group"><label class="form-label">Price (₦) *</label><input type="number" class="form-input" id="mat-price" placeholder="0.00" step="0.01"></div>
                 </div>
                 <button class="btn btn-primary btn-block" onclick="saveMaterial()">💾 Save Material</button>
             </div>
@@ -1154,36 +1006,18 @@
     <!-- View Quote Modal -->
     <div class="modal-overlay" id="view-quote-modal">
         <div class="modal" style="max-width:600px;">
-            <div class="modal-header">
-                <h3 id="view-quote-title">Quotation Details</h3>
-                <button class="modal-close" onclick="closeViewQuote()">×</button>
-            </div>
+            <div class="modal-header"><h3 id="view-quote-title">Quotation Details</h3><button class="modal-close" onclick="closeViewQuote()">×</button></div>
             <div class="modal-body" id="view-quote-content"></div>
         </div>
     </div>
 
     <!-- Bottom Navigation -->
     <nav class="bottom-nav">
-        <button class="nav-item active" data-page="dashboard" onclick="navigateTo('dashboard')">
-            <span class="nav-icon">📊</span>
-            <span>Dashboard</span>
-        </button>
-        <button class="nav-item" data-page="new-quote" onclick="navigateTo('new-quote')">
-            <span class="nav-icon">📝</span>
-            <span>New Quote</span>
-        </button>
-        <button class="nav-item" data-page="history" onclick="navigateTo('history')">
-            <span class="nav-icon">📋</span>
-            <span>History</span>
-        </button>
-        <button class="nav-item" data-page="materials" onclick="navigateTo('materials')">
-            <span class="nav-icon">📦</span>
-            <span>Materials</span>
-        </button>
-        <button class="nav-item" data-page="settings" onclick="navigateTo('settings')">
-            <span class="nav-icon">⚙️</span>
-            <span>Settings</span>
-        </button>
+        <button class="nav-item active" data-page="dashboard" onclick="navigateTo('dashboard')"><span class="nav-icon">📊</span><span>Dashboard</span></button>
+        <button class="nav-item" data-page="new-quote" onclick="navigateTo('new-quote')"><span class="nav-icon">📝</span><span>New Quote</span></button>
+        <button class="nav-item" data-page="history" onclick="navigateTo('history')"><span class="nav-icon">📋</span><span>History</span></button>
+        <button class="nav-item" data-page="materials" onclick="navigateTo('materials')"><span class="nav-icon">📦</span><span>Materials</span></button>
+        <button class="nav-item" data-page="settings" onclick="navigateTo('settings')"><span class="nav-icon">⚙️</span><span>Settings</span></button>
     </nav>
 
     <script>
@@ -1192,6 +1026,7 @@
             materials: [],
             quotations: [],
             currentQuoteItems: [],
+            editingQuoteId: null,
             settings: {
                 company: 'SolarTech Nigeria Ltd.',
                 address: '123 Solar Street, Lagos, Nigeria',
@@ -1208,7 +1043,6 @@
             populateDefaultMaterials();
             document.getElementById('quote-date').valueAsDate = new Date();
             updateAllUI();
-            console.log('✅ SolarQuote Pro initialized successfully');
         }
 
         function loadAllData() {
@@ -1216,7 +1050,6 @@
                 const savedMaterials = localStorage.getItem('sq_materials');
                 const savedQuotations = localStorage.getItem('sq_quotations');
                 const savedSettings = localStorage.getItem('sq_settings');
-
                 if (savedMaterials) APP.materials = JSON.parse(savedMaterials);
                 if (savedQuotations) APP.quotations = JSON.parse(savedQuotations);
                 if (savedSettings) APP.settings = { ...APP.settings, ...JSON.parse(savedSettings) };
@@ -1259,7 +1092,6 @@
         function navigateTo(pageName) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-
             const pageMap = {
                 'dashboard': 'page-dashboard',
                 'new-quote': 'page-new-quote',
@@ -1267,11 +1099,11 @@
                 'materials': 'page-materials',
                 'settings': 'page-settings'
             };
-
             const pageId = pageMap[pageName];
             if (pageId) {
                 document.getElementById(pageId).classList.add('active');
-                document.querySelector(`[data-page="${pageName}"]`).classList.add('active');
+                const navItem = document.querySelector(`[data-page="${pageName}"]`);
+                if (navItem) navItem.classList.add('active');
                 updateAllUI();
             }
         }
@@ -1288,31 +1120,22 @@
         function updateDashboard() {
             const today = new Date().toDateString();
             const todayQuotes = APP.quotations.filter(q => new Date(q.date).toDateString() === today);
-
             const now = new Date();
             const monthQuotes = APP.quotations.filter(q => {
                 const d = new Date(q.date);
                 return d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear();
             });
-
             const monthTotal = monthQuotes.reduce((s, q) => s + q.grandTotal, 0);
             const totalRevenue = APP.quotations.reduce((s, q) => s + q.grandTotal, 0);
-
             document.getElementById('stat-today').textContent = todayQuotes.length;
             document.getElementById('stat-month').textContent = '₦' + formatCurrency(monthTotal);
             document.getElementById('stat-total').textContent = APP.quotations.length;
             document.getElementById('stat-revenue').textContent = '₦' + formatCurrency(totalRevenue);
 
-            // Recent quotes
             const recent = [...APP.quotations].reverse().slice(0, 5);
             const container = document.getElementById('recent-quotes-list');
-
             if (recent.length === 0) {
-                container.innerHTML = `
-                    <div class="empty-state">
-                        <div class="empty-icon">📭</div>
-                        <p>No quotations yet</p>
-                    </div>`;
+                container.innerHTML = '<div class="empty-state"><div class="empty-icon">📭</div><p>No quotations yet</p></div>';
             } else {
                 container.innerHTML = recent.map(q => `
                     <div class="quote-item" onclick="viewQuotationDetails('${q.id}')">
@@ -1320,7 +1143,7 @@
                             <span class="quote-id">${q.quoteNumber}</span>
                             <span class="quote-date">${formatDate(q.date)}</span>
                         </div>
-                        <div class="quote-customer">👤 ${q.customerName}</div>
+                        <div class="quote-customer">👤 ${q.customerName}${q.quoteName ? ' – ' + q.quoteName : ''}</div>
                         <div style="display:flex; justify-content:space-between; align-items:center;">
                             <span class="quote-total">₦${formatCurrency(q.grandTotal)}</span>
                             <span class="badge badge-info">${q.items.length} items</span>
@@ -1330,27 +1153,18 @@
             }
         }
 
-        // ==================== MATERIALS MANAGEMENT ====================
+        // ==================== MATERIALS ====================
         function renderMaterialsList() {
             const container = document.getElementById('materials-list-container');
-
             if (APP.materials.length === 0) {
-                container.innerHTML = `
-                    <div class="empty-state">
-                        <div class="empty-icon">📦</div>
-                        <p>No materials added yet</p>
-                        <button class="btn btn-primary btn-sm" style="margin-top:10px;" onclick="openMaterialForm()">
-                            Add First Material
-                        </button>
-                    </div>`;
+                container.innerHTML = '<div class="empty-state"><div class="empty-icon">📦</div><p>No materials added yet</p></div>';
                 return;
             }
-
             container.innerHTML = APP.materials.map(m => `
                 <div class="material-item">
                     <div class="material-info">
                         <div class="material-name">${m.name}</div>
-                        <div class="material-meta">Unit: ${m.unit} | ID: ${m.id.slice(-6)}</div>
+                        <div class="material-meta">Unit: ${m.unit}</div>
                     </div>
                     <div class="material-price">₦${formatCurrency(m.price)}</div>
                     <div style="display:flex; gap:6px;">
@@ -1364,15 +1178,12 @@
         function updateMaterialDropdown() {
             const select = document.getElementById('material-select');
             select.innerHTML = '<option value="">-- Choose material --</option>' +
-                APP.materials.map(m => 
-                    `<option value="${m.id}">${m.name} — ₦${formatCurrency(m.price)} / ${m.unit}</option>`
-                ).join('');
+                APP.materials.map(m => `<option value="${m.id}">${m.name} — ₦${formatCurrency(m.price)} / ${m.unit}</option>`).join('');
         }
 
         function openMaterialForm(materialId = null) {
             const modal = document.getElementById('material-modal');
             modal.classList.add('active');
-
             if (materialId) {
                 document.getElementById('material-modal-title').textContent = 'Edit Material';
                 const mat = APP.materials.find(m => m.id === materialId);
@@ -1400,33 +1211,26 @@
             const unit = document.getElementById('mat-unit').value;
             const price = parseFloat(document.getElementById('mat-price').value);
             const editId = document.getElementById('edit-material-id').value;
-
             if (!name || isNaN(price) || price < 0) {
                 showToast('Please fill all fields correctly', 'error');
                 return;
             }
-
             if (editId) {
                 const idx = APP.materials.findIndex(m => m.id === editId);
-                if (idx >= 0) {
-                    APP.materials[idx] = { ...APP.materials[idx], name, unit, price };
-                }
+                if (idx >= 0) APP.materials[idx] = { ...APP.materials[idx], name, unit, price };
             } else {
                 APP.materials.push({ id: generateId(), name, unit, price });
             }
-
             saveAllData();
             closeMaterialForm();
             updateAllUI();
-            showToast('Material saved successfully! ✅', 'success');
+            showToast('Material saved! ✅', 'success');
         }
 
-        function editMaterial(id) {
-            openMaterialForm(id);
-        }
+        function editMaterial(id) { openMaterialForm(id); }
 
         function deleteMaterial(id) {
-            if (confirm('Delete this material? This cannot be undone.')) {
+            if (confirm('Delete this material?')) {
                 APP.materials = APP.materials.filter(m => m.id !== id);
                 saveAllData();
                 updateAllUI();
@@ -1438,25 +1242,14 @@
         function addItemToQuote() {
             const materialId = document.getElementById('material-select').value;
             const qty = parseInt(document.getElementById('item-qty').value);
-
-            if (!materialId) {
-                showToast('Please select a material', 'error');
-                return;
-            }
-            if (!qty || qty < 1) {
-                showToast('Please enter a valid quantity', 'error');
-                return;
-            }
-
+            if (!materialId) { showToast('Select a material', 'error'); return; }
+            if (!qty || qty < 1) { showToast('Enter quantity', 'error'); return; }
             const material = APP.materials.find(m => m.id === materialId);
             if (!material) return;
-
-            // Check if already exists
             const existingIdx = APP.currentQuoteItems.findIndex(item => item.materialId === materialId);
             if (existingIdx >= 0) {
                 APP.currentQuoteItems[existingIdx].quantity += qty;
-                APP.currentQuoteItems[existingIdx].total = 
-                    APP.currentQuoteItems[existingIdx].quantity * APP.currentQuoteItems[existingIdx].price;
+                APP.currentQuoteItems[existingIdx].total = APP.currentQuoteItems[existingIdx].quantity * APP.currentQuoteItems[existingIdx].price;
             } else {
                 APP.currentQuoteItems.push({
                     materialId: material.id,
@@ -1467,7 +1260,6 @@
                     total: material.price * qty
                 });
             }
-
             renderItemsTable();
             calculateTotals();
             document.getElementById('material-select').value = '';
@@ -1482,29 +1274,17 @@
 
         function renderItemsTable() {
             const tbody = document.getElementById('items-tbody');
-
             if (APP.currentQuoteItems.length === 0) {
-                tbody.innerHTML = `
-                    <tr>
-                        <td colspan="5">
-                            <div class="empty-state">
-                                <div class="empty-icon">📋</div>
-                                <p>Select materials above to add items</p>
-                            </div>
-                        </td>
-                    </tr>`;
+                tbody.innerHTML = '<tr><td colspan="5"><div class="empty-state"><div class="empty-icon">📋</div><p>Select materials above to add items</p></div></td></tr>';
                 return;
             }
-
             tbody.innerHTML = APP.currentQuoteItems.map((item, i) => `
                 <tr>
                     <td><strong>${item.name}</strong><br><small style="color:var(--gray-500);">${item.unit}</small></td>
                     <td class="text-center">${item.quantity}</td>
                     <td class="text-right">₦${formatCurrency(item.price)}</td>
                     <td class="text-right"><strong>₦${formatCurrency(item.total)}</strong></td>
-                    <td class="text-center">
-                        <button class="btn btn-danger btn-xs" onclick="removeQuoteItem(${i})" title="Remove">×</button>
-                    </td>
+                    <td class="text-center"><button class="btn btn-danger btn-xs" onclick="removeQuoteItem(${i})">×</button></td>
                 </tr>
             `).join('');
         }
@@ -1515,26 +1295,26 @@
             const transport = parseFloat(document.getElementById('transport-cost').value) || 0;
             const discount = parseFloat(document.getElementById('discount-amount').value) || 0;
             const vatRate = parseFloat(document.getElementById('vat-rate').value) || 0;
-
             const extrasTotal = labour + transport;
             const afterDiscount = subtotal + extrasTotal - discount;
             const vatAmount = afterDiscount * (vatRate / 100);
             const grandTotal = afterDiscount + vatAmount;
-
             document.getElementById('display-subtotal').textContent = '₦' + formatCurrency(subtotal);
             document.getElementById('display-extras').textContent = '₦' + formatCurrency(extrasTotal);
             document.getElementById('display-vat').textContent = '₦' + formatCurrency(vatAmount);
             document.getElementById('display-grand-total').textContent = '₦' + formatCurrency(Math.max(0, grandTotal));
-
             return { subtotal, labour, transport, discount, vatRate, vatAmount, extrasTotal, grandTotal: Math.max(0, grandTotal) };
         }
 
         function clearQuoteForm() {
             if (APP.currentQuoteItems.length > 0 && !confirm('Clear all items?')) return;
             APP.currentQuoteItems = [];
+            APP.editingQuoteId = null;
             document.getElementById('cust-name').value = '';
             document.getElementById('cust-phone').value = '';
             document.getElementById('cust-address').value = '';
+            document.getElementById('cust-quote-name').value = '';
+            document.getElementById('cust-notes').value = '';
             document.getElementById('system-type').value = '';
             document.getElementById('labour-cost').value = '0';
             document.getElementById('transport-cost').value = '0';
@@ -1545,74 +1325,98 @@
             calculateTotals();
         }
 
-        // ==================== SAVE QUOTATION ====================
+        // ==================== SAVE / UPDATE ====================
         function saveQuotation() {
             const customerName = document.getElementById('cust-name').value.trim();
-            if (!customerName) {
-                showToast('Please enter customer name', 'error');
-                return;
-            }
-            if (APP.currentQuoteItems.length === 0) {
-                showToast('Please add at least one item', 'error');
-                return;
-            }
+            if (!customerName) { showToast('Enter customer name', 'error'); return; }
+            if (APP.currentQuoteItems.length === 0) { showToast('Add at least one item', 'error'); return; }
 
             const totals = calculateTotals();
-            const quoteNumber = 'QT-' + new Date().getFullYear().toString().slice(-2) + 
-                              (new Date().getMonth() + 1).toString().padStart(2, '0') + '-' +
-                              (APP.quotations.length + 1).toString().padStart(3, '0');
+            const quoteName = document.getElementById('cust-quote-name').value.trim();
+            const notes = document.getElementById('cust-notes').value.trim();
 
-            const quotation = {
-                id: generateId(),
-                quoteNumber: quoteNumber,
-                customerName: customerName,
-                customerPhone: document.getElementById('cust-phone').value.trim(),
-                customerAddress: document.getElementById('cust-address').value.trim(),
-                systemType: document.getElementById('system-type').value,
-                date: document.getElementById('quote-date').value || new Date().toISOString().split('T')[0],
-                items: [...APP.currentQuoteItems],
-                labour: totals.labour,
-                transport: totals.transport,
-                discount: totals.discount,
-                vatRate: totals.vatRate,
-                vatAmount: totals.vatAmount,
-                subtotal: totals.subtotal,
-                grandTotal: totals.grandTotal,
-                createdAt: new Date().toISOString()
-            };
-
-            APP.quotations.push(quotation);
+            if (APP.editingQuoteId) {
+                const idx = APP.quotations.findIndex(q => q.id === APP.editingQuoteId);
+                if (idx >= 0) {
+                    const existing = APP.quotations[idx];
+                    APP.quotations[idx] = {
+                        ...existing,
+                        customerName,
+                        customerPhone: document.getElementById('cust-phone').value.trim(),
+                        customerAddress: document.getElementById('cust-address').value.trim(),
+                        quoteName,
+                        notes,
+                        systemType: document.getElementById('system-type').value,
+                        date: document.getElementById('quote-date').value || new Date().toISOString().split('T')[0],
+                        items: [...APP.currentQuoteItems],
+                        labour: totals.labour,
+                        transport: totals.transport,
+                        discount: totals.discount,
+                        vatRate: totals.vatRate,
+                        vatAmount: totals.vatAmount,
+                        subtotal: totals.subtotal,
+                        grandTotal: totals.grandTotal,
+                        updatedAt: new Date().toISOString()
+                    };
+                    showToast(`Quotation ${existing.quoteNumber} updated! ✅`, 'success');
+                }
+                APP.editingQuoteId = null;
+            } else {
+                const quoteNumber = 'QT-' + new Date().getFullYear().toString().slice(-2) +
+                    (new Date().getMonth() + 1).toString().padStart(2, '0') + '-' +
+                    (APP.quotations.length + 1).toString().padStart(3, '0');
+                const quotation = {
+                    id: generateId(),
+                    quoteNumber,
+                    customerName,
+                    customerPhone: document.getElementById('cust-phone').value.trim(),
+                    customerAddress: document.getElementById('cust-address').value.trim(),
+                    quoteName,
+                    notes,
+                    systemType: document.getElementById('system-type').value,
+                    date: document.getElementById('quote-date').value || new Date().toISOString().split('T')[0],
+                    items: [...APP.currentQuoteItems],
+                    labour: totals.labour,
+                    transport: totals.transport,
+                    discount: totals.discount,
+                    vatRate: totals.vatRate,
+                    vatAmount: totals.vatAmount,
+                    subtotal: totals.subtotal,
+                    grandTotal: totals.grandTotal,
+                    createdAt: new Date().toISOString(),
+                    updatedAt: new Date().toISOString()
+                };
+                APP.quotations.push(quotation);
+                showToast(`Quotation ${quoteNumber} saved! ✅`, 'success');
+                if (APP.settings.sheetsUrl) {
+                    fetch(APP.settings.sheetsUrl, {
+                        method: 'POST',
+                        body: JSON.stringify({ action: 'saveQuotation', quotation })
+                    }).catch(err => console.log('Sheets sync error:', err));
+                }
+            }
             saveAllData();
             clearQuoteForm();
             updateAllUI();
             navigateTo('history');
-            showToast(`Quotation ${quoteNumber} saved successfully! ✅`, 'success');
         }
 
-        // ==================== QUOTATION HISTORY ====================
+        // ==================== HISTORY ====================
         function renderQuotesList(filteredQuotes = null) {
             const quotes = filteredQuotes || [...APP.quotations].reverse();
             const container = document.getElementById('quotes-list-container');
-
             if (quotes.length === 0) {
-                container.innerHTML = `
-                    <div class="empty-state">
-                        <div class="empty-icon">📭</div>
-                        <p>${filteredQuotes ? 'No matching quotations' : 'No quotations yet'}</p>
-                    </div>`;
+                container.innerHTML = '<div class="empty-state"><div class="empty-icon">📭</div><p>No quotations found</p></div>';
                 return;
             }
-
             container.innerHTML = quotes.map(q => `
                 <div class="quote-item">
                     <div class="quote-header">
                         <span class="quote-id">📄 ${q.quoteNumber}</span>
                         <span class="quote-date">${formatDate(q.date)}</span>
                     </div>
-                    <div class="quote-customer">👤 ${q.customerName}</div>
-                    <div style="font-size:12px; color:var(--gray-500); margin-bottom:4px;">
-                        📞 ${q.customerPhone || 'N/A'} | 🏷️ ${q.systemType || 'N/A'}
-                    </div>
+                    <div class="quote-customer">👤 ${q.customerName}${q.quoteName ? ' – ' + q.quoteName : ''}</div>
+                    <div style="font-size:12px; color:var(--gray-500); margin-bottom:4px;">📞 ${q.customerPhone || 'N/A'} | 🏷️ ${q.systemType || 'N/A'}</div>
                     <div style="display:flex; justify-content:space-between; align-items:center;">
                         <span class="quote-total">₦${formatCurrency(q.grandTotal)}</span>
                         <span class="badge badge-info">${q.items.length} items</span>
@@ -1630,14 +1434,12 @@
 
         function filterQuotes() {
             const search = document.getElementById('search-input').value.toLowerCase();
-            if (!search) {
-                renderQuotesList();
-                return;
-            }
+            if (!search) { renderQuotesList(); return; }
             const filtered = APP.quotations.filter(q =>
                 q.quoteNumber.toLowerCase().includes(search) ||
                 q.customerName.toLowerCase().includes(search) ||
-                (q.customerPhone && q.customerPhone.includes(search))
+                (q.customerPhone && q.customerPhone.includes(search)) ||
+                (q.quoteName && q.quoteName.toLowerCase().includes(search))
             );
             renderQuotesList(filtered.reverse());
         }
@@ -1645,86 +1447,73 @@
         function viewQuotationDetails(id) {
             const quote = APP.quotations.find(q => q.id === id);
             if (!quote) return;
-
             document.getElementById('view-quote-title').textContent = `Quotation ${quote.quoteNumber}`;
             document.getElementById('view-quote-content').innerHTML = `
                 <div style="margin-bottom:16px;">
+                    <strong>Quotation:</strong> ${quote.quoteName || quote.quoteNumber}<br>
                     <strong>Customer:</strong> ${quote.customerName}<br>
                     <strong>Phone:</strong> ${quote.customerPhone || 'N/A'}<br>
                     <strong>Address:</strong> ${quote.customerAddress || 'N/A'}<br>
                     <strong>Date:</strong> ${formatDate(quote.date)}<br>
-                    <strong>System:</strong> ${quote.systemType || 'N/A'}
+                    <strong>System:</strong> ${quote.systemType || 'N/A'}<br>
+                    ${quote.notes ? '<hr><strong>Internal Notes:</strong><br>' + quote.notes.replace(/\n/g, '<br>') : ''}
                 </div>
                 <table class="items-table" style="width:100%; margin-bottom:16px;">
                     <thead><tr><th>Item</th><th>Qty</th><th>Price</th><th>Total</th></tr></thead>
-                    <tbody>
-                        ${quote.items.map(item => `
-                            <tr>
-                                <td>${item.name}</td>
-                                <td class="text-center">${item.quantity}</td>
-                                <td class="text-right">₦${formatCurrency(item.price)}</td>
-                                <td class="text-right">₦${formatCurrency(item.total)}</td>
-                            </tr>
-                        `).join('')}
-                    </tbody>
+                    <tbody>${quote.items.map(item => `
+                        <tr>
+                            <td>${item.name}</td>
+                            <td class="text-center">${item.quantity}</td>
+                            <td class="text-right">₦${formatCurrency(item.price)}</td>
+                            <td class="text-right">₦${formatCurrency(item.total)}</td>
+                        </tr>
+                    `).join('')}</tbody>
                 </table>
-                <div style="text-align:right; font-size:18px; font-weight:700; color:var(--success);">
-                    Grand Total: ₦${formatCurrency(quote.grandTotal)}
-                </div>
-                <button class="btn btn-success btn-block" style="margin-top:12px;" 
-                        onclick="downloadQuotePDF('${quote.id}'); closeViewQuote();">
-                    📄 Download PDF
-                </button>
+                <div style="text-align:right; font-size:18px; font-weight:700; color:var(--success);">Grand Total: ₦${formatCurrency(quote.grandTotal)}</div>
+                <button class="btn btn-success btn-block" style="margin-top:12px;" onclick="downloadQuotePDF('${quote.id}'); closeViewQuote();">📄 Download PDF</button>
             `;
             document.getElementById('view-quote-modal').classList.add('active');
         }
 
-        function closeViewQuote() {
-            document.getElementById('view-quote-modal').classList.remove('active');
-        }
+        function closeViewQuote() { document.getElementById('view-quote-modal').classList.remove('active'); }
 
         function editQuotation(id) {
             const quote = APP.quotations.find(q => q.id === id);
             if (!quote) return;
-
             if (APP.currentQuoteItems.length > 0 && !confirm('Current items will be replaced. Continue?')) return;
-
             document.getElementById('cust-name').value = quote.customerName;
             document.getElementById('cust-phone').value = quote.customerPhone || '';
             document.getElementById('cust-address').value = quote.customerAddress || '';
+            document.getElementById('cust-quote-name').value = quote.quoteName || '';
+            document.getElementById('cust-notes').value = quote.notes || '';
             document.getElementById('system-type').value = quote.systemType || '';
             document.getElementById('quote-date').value = quote.date;
             document.getElementById('labour-cost').value = quote.labour || 0;
             document.getElementById('transport-cost').value = quote.transport || 0;
             document.getElementById('discount-amount').value = quote.discount || 0;
             document.getElementById('vat-rate').value = quote.vatRate || 7.5;
-            APP.currentQuoteItems = quote.items.map(item => ({...item}));
-
-            // Remove the old quote
-            APP.quotations = APP.quotations.filter(q => q.id !== id);
-            saveAllData();
-
+            APP.currentQuoteItems = quote.items.map(item => ({ ...item }));
+            APP.editingQuoteId = id;
             renderItemsTable();
             calculateTotals();
             navigateTo('new-quote');
-            showToast('Quotation loaded for editing', 'info');
+            showToast('Editing ' + quote.quoteNumber, 'info');
         }
 
         function duplicateQuotation(id) {
             const quote = APP.quotations.find(q => q.id === id);
             if (!quote) return;
-
             const newQuote = {
                 ...quote,
                 id: generateId(),
-                quoteNumber: 'QT-' + new Date().getFullYear().toString().slice(-2) + 
-                            (new Date().getMonth() + 1).toString().padStart(2, '0') + '-' +
-                            (APP.quotations.length + 1).toString().padStart(3, '0'),
+                quoteNumber: 'QT-' + new Date().getFullYear().toString().slice(-2) +
+                    (new Date().getMonth() + 1).toString().padStart(2, '0') + '-' +
+                    (APP.quotations.length + 1).toString().padStart(3, '0'),
                 date: new Date().toISOString().split('T')[0],
                 createdAt: new Date().toISOString(),
-                items: quote.items.map(item => ({...item}))
+                updatedAt: new Date().toISOString(),
+                items: quote.items.map(item => ({ ...item }))
             };
-
             APP.quotations.push(newQuote);
             saveAllData();
             updateAllUI();
@@ -1732,7 +1521,7 @@
         }
 
         function deleteQuotation(id) {
-            if (confirm('Delete this quotation? This cannot be undone.')) {
+            if (confirm('Delete this quotation?')) {
                 APP.quotations = APP.quotations.filter(q => q.id !== id);
                 saveAllData();
                 updateAllUI();
@@ -1740,161 +1529,257 @@
             }
         }
 
-        // ==================== PDF GENERATION ====================
+        // ==================== PROFESSIONAL PDF GENERATION ====================
         function generatePDF() {
-            const customerName = document.getElementById('cust-name').value.trim() || 'Customer';
-            const totals = calculateTotals();
-            
             const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
-            
+            const doc = new jsPDF('p', 'mm', 'a4');
             const pageWidth = doc.internal.pageSize.getWidth();
-            
-            // Company Header
+            const pageHeight = doc.internal.pageSize.getHeight();
+            const margin = 15;
+            let y = margin;
+
+            // ---------- HEADER ----------
             doc.setFillColor(26, 35, 126);
-            doc.rect(0, 0, pageWidth, 40, 'F');
+            doc.rect(0, 0, pageWidth, 38, 'F');
             doc.setTextColor(255, 255, 255);
-            doc.setFontSize(20);
-            doc.setFont('helvetica', 'bold');
-            doc.text(APP.settings.company, 15, 20);
-            doc.setFontSize(9);
-            doc.setFont('helvetica', 'normal');
-            doc.text(APP.settings.address, 15, 28);
-            doc.text(`Tel: ${APP.settings.phone} | Email: ${APP.settings.email}`, 15, 34);
-            
-            // Quotation Title
-            doc.setTextColor(26, 35, 126);
             doc.setFontSize(18);
             doc.setFont('helvetica', 'bold');
-            doc.text('QUOTATION', pageWidth - 15, 55, { align: 'right' });
-            
-            // Customer Info
-            doc.setTextColor(60, 60, 60);
-            doc.setFontSize(10);
-            doc.setFont('helvetica', 'bold');
-            doc.text('Customer Details:', 15, 65);
+            doc.text(APP.settings.company, margin, 16);
+            doc.setFontSize(8);
             doc.setFont('helvetica', 'normal');
-            doc.text(`Name: ${customerName}`, 15, 73);
-            doc.text(`Phone: ${document.getElementById('cust-phone').value || 'N/A'}`, 15, 80);
-            doc.text(`Address: ${document.getElementById('cust-address').value || 'N/A'}`, 15, 87);
-            doc.text(`Date: ${document.getElementById('quote-date').value || new Date().toISOString().split('T')[0]}`, 15, 94);
-            doc.text(`System: ${document.getElementById('system-type').value || 'N/A'}`, 15, 101);
-            
-            // Items Table
+            doc.text(APP.settings.address, margin, 24);
+            doc.text(`Tel: ${APP.settings.phone}  |  Email: ${APP.settings.email}`, margin, 30);
+
+            y = 48;
+            // ---------- QUOTATION TITLE ----------
+            doc.setTextColor(26, 35, 126);
+            doc.setFontSize(14);
+            doc.setFont('helvetica', 'bold');
+            doc.text('QUOTATION', pageWidth - margin, y, { align: 'right' });
+            const quoteName = document.getElementById('cust-quote-name').value.trim();
+            if (quoteName) {
+                doc.setFontSize(10);
+                doc.text(`Project: ${quoteName}`, margin, y);
+            }
+            y += 8;
+
+            // ---------- CUSTOMER INFO ----------
+            const customerName = document.getElementById('cust-name').value.trim() || 'Customer';
+            const phone = document.getElementById('cust-phone').value || 'N/A';
+            const address = document.getElementById('cust-address').value || 'N/A';
+            const dateVal = document.getElementById('quote-date').value || new Date().toISOString().split('T')[0];
+
+            doc.setDrawColor(200);
+            doc.setLineWidth(0.5);
+            doc.rect(margin, y, pageWidth - 2 * margin, 30);
+            doc.setFontSize(9);
+            doc.setTextColor(60, 60, 60);
+            doc.setFont('helvetica', 'bold');
+            doc.text('Customer Details', margin + 4, y + 8);
+            doc.setFont('helvetica', 'normal');
+            doc.text(`Name: ${customerName}`, margin + 4, y + 16);
+            doc.text(`Phone: ${phone}`, margin + 4, y + 22);
+            doc.text(`Address: ${address}`, pageWidth / 2 + 10, y + 16);
+            doc.text(`Date: ${formatDate(dateVal)}`, pageWidth / 2 + 10, y + 22);
+
+            y += 38;
+
+            // ---------- ITEMS TABLE ----------
             const tableData = APP.currentQuoteItems.map(item => [
-                item.name,
+                item.name + ' (' + item.unit + ')',
                 item.quantity.toString(),
-                `N${formatCurrency(item.price)}`,
-                `N${formatCurrency(item.total)}`
+                '₦' + formatCurrency(item.price),
+                '₦' + formatCurrency(item.total)
             ]);
-            
+            const subtotal = APP.currentQuoteItems.reduce((sum, item) => sum + item.total, 0);
+            const labour = parseFloat(document.getElementById('labour-cost').value) || 0;
+            const transport = parseFloat(document.getElementById('transport-cost').value) || 0;
+            const discount = parseFloat(document.getElementById('discount-amount').value) || 0;
+            const vatRate = parseFloat(document.getElementById('vat-rate').value) || 0;
+            const extrasTotal = labour + transport;
+            const afterDiscount = subtotal + extrasTotal - discount;
+            const vatAmount = afterDiscount * (vatRate / 100);
+            const grandTotal = Math.max(0, afterDiscount + vatAmount);
+
+            // Add extra rows for subtotals
+            tableData.push(['', '', 'Subtotal:', '₦' + formatCurrency(subtotal)]);
+            if (extrasTotal > 0) tableData.push(['', '', 'Labour + Transport:', '₦' + formatCurrency(extrasTotal)]);
+            if (discount > 0) tableData.push(['', '', 'Discount:', '-₦' + formatCurrency(discount)]);
+            if (vatRate > 0) tableData.push(['', '', `VAT (${vatRate}%):`, '₦' + formatCurrency(vatAmount)]);
+            tableData.push(['', '', 'GRAND TOTAL:', '₦' + formatCurrency(grandTotal)]);
+
             doc.autoTable({
-                startY: 110,
+                startY: y,
                 head: [['Item', 'Qty', 'Unit Price', 'Total']],
                 body: tableData,
+                margin: { left: margin, right: margin },
                 theme: 'grid',
                 headStyles: {
                     fillColor: [26, 35, 126],
                     textColor: [255, 255, 255],
                     fontStyle: 'bold',
-                    fontSize: 9
+                    fontSize: 8,
+                    halign: 'left'
                 },
                 bodyStyles: {
-                    fontSize: 9,
-                    textColor: [60, 60, 60]
+                    fontSize: 8,
+                    textColor: [50, 50, 50]
                 },
-                alternateRowStyles: {
-                    fillColor: [245, 245, 245]
+                columnStyles: {
+                    0: { cellWidth: 'auto' },
+                    1: { halign: 'center', cellWidth: 20 },
+                    2: { halign: 'right', cellWidth: 35 },
+                    3: { halign: 'right', cellWidth: 40 }
+                },
+                didParseCell: function(data) {
+                    // Bold the last rows (totals)
+                    if (data.row.index >= tableData.length - 5) {
+                        data.cell.styles.fontStyle = 'bold';
+                    }
+                    if (data.row.index === tableData.length - 1) {
+                        data.cell.styles.textColor = [245, 124, 0];
+                        data.cell.styles.fontSize = 9;
+                    }
                 }
             });
-            
-            // Totals
-            const finalY = doc.lastAutoTable.finalY + 15;
-            doc.setFontSize(10);
-            doc.text(`Subtotal: N${formatCurrency(totals.subtotal)}`, pageWidth - 15, finalY, { align: 'right' });
-            doc.text(`Labour + Transport: N${formatCurrency(totals.extrasTotal)}`, pageWidth - 15, finalY + 8, { align: 'right' });
-            doc.text(`Discount: -N${formatCurrency(totals.discount)}`, pageWidth - 15, finalY + 16, { align: 'right' });
-            doc.text(`VAT (${totals.vatRate}%): N${formatCurrency(totals.vatAmount)}`, pageWidth - 15, finalY + 24, { align: 'right' });
-            
-            doc.setFontSize(14);
-            doc.setFont('helvetica', 'bold');
-            doc.setTextColor(245, 124, 0);
-            doc.text(`GRAND TOTAL: N${formatCurrency(totals.grandTotal)}`, pageWidth - 15, finalY + 36, { align: 'right' });
-            
-            // Payment Details
-            doc.setTextColor(60, 60, 60);
+
+            y = doc.lastAutoTable.finalY + 10;
+
+            // ---------- PAYMENT DETAILS ----------
             doc.setFontSize(9);
+            doc.setTextColor(60, 60, 60);
+            doc.setFont('helvetica', 'bold');
+            doc.text('Payment Details', margin, y);
+            y += 6;
             doc.setFont('helvetica', 'normal');
-            doc.text('Payment Details:', 15, finalY + 50);
             const bankLines = APP.settings.bank.split('\n');
-            bankLines.forEach((line, i) => {
-                doc.text(line, 15, finalY + 58 + (i * 7));
+            bankLines.forEach(line => {
+                doc.text(line, margin, y);
+                y += 5;
             });
-            
-            // Signature
-            doc.text('Authorized Signature: ___________________________', 15, finalY + 80);
-            doc.text('Date: ___________________________', 15, finalY + 90);
-            
-            // Footer
-            doc.setFontSize(8);
+
+            // ---------- SIGNATURE ----------
+            y += 8;
+            doc.text('Authorized Signature: ___________________________', margin, y);
+            y += 6;
+            doc.text('Date: ___________________________', margin, y);
+
+            // ---------- FOOTER ----------
+            doc.setFontSize(7);
             doc.setTextColor(150, 150, 150);
-            doc.text('This is a computer-generated quotation. Valid for 30 days.', pageWidth / 2, 285, { align: 'center' });
-            
+            doc.text('This is Valid for 14 days.', pageWidth / 2, pageHeight - 10, { align: 'center' });
+
             doc.save(`Quotation_${customerName.replace(/\s+/g, '_')}.pdf`);
-            showToast('PDF downloaded successfully! 📄', 'success');
+            showToast('PDF downloaded! 📄', 'success');
         }
 
         function downloadQuotePDF(id) {
             const quote = APP.quotations.find(q => q.id === id);
             if (!quote) return;
-            
             const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
+            const doc = new jsPDF('p', 'mm', 'a4');
             const pageWidth = doc.internal.pageSize.getWidth();
-            
+            const pageHeight = doc.internal.pageSize.getHeight();
+            const margin = 15;
+            let y = margin;
+
+            // Header
             doc.setFillColor(26, 35, 126);
-            doc.rect(0, 0, pageWidth, 40, 'F');
+            doc.rect(0, 0, pageWidth, 38, 'F');
             doc.setTextColor(255, 255, 255);
-            doc.setFontSize(20);
+            doc.setFontSize(18);
             doc.setFont('helvetica', 'bold');
-            doc.text(APP.settings.company, 15, 20);
-            doc.setFontSize(9);
+            doc.text(APP.settings.company, margin, 16);
+            doc.setFontSize(8);
             doc.setFont('helvetica', 'normal');
-            doc.text(APP.settings.address, 15, 28);
-            doc.text(`Tel: ${APP.settings.phone}`, 15, 34);
-            
+            doc.text(APP.settings.address, margin, 24);
+            doc.text(`Tel: ${APP.settings.phone}  |  Email: ${APP.settings.email}`, margin, 30);
+
+            y = 48;
             doc.setTextColor(26, 35, 126);
-            doc.setFontSize(16);
-            doc.text(`QUOTATION: ${quote.quoteNumber}`, pageWidth - 15, 55, { align: 'right' });
-            
-            doc.setTextColor(60, 60, 60);
-            doc.setFontSize(10);
-            doc.text(`Customer: ${quote.customerName}`, 15, 70);
-            doc.text(`Phone: ${quote.customerPhone || 'N/A'}`, 15, 77);
-            doc.text(`Date: ${formatDate(quote.date)}`, 15, 84);
-            
-            const tableData = quote.items.map(item => [
-                item.name,
-                item.quantity.toString(),
-                `N${formatCurrency(item.price)}`,
-                `N${formatCurrency(item.total)}`
-            ]);
-            
-            doc.autoTable({
-                startY: 95,
-                head: [['Item', 'Qty', 'Unit Price', 'Total']],
-                body: tableData,
-                theme: 'grid',
-                headStyles: { fillColor: [26, 35, 126], textColor: [255, 255, 255], fontSize: 9 },
-                bodyStyles: { fontSize: 9 }
-            });
-            
-            const fy = doc.lastAutoTable.finalY + 15;
             doc.setFontSize(14);
             doc.setFont('helvetica', 'bold');
-            doc.setTextColor(245, 124, 0);
-            doc.text(`GRAND TOTAL: N${formatCurrency(quote.grandTotal)}`, pageWidth - 15, fy, { align: 'right' });
-            
+            doc.text(`QUOTATION: ${quote.quoteNumber}`, pageWidth - margin, y, { align: 'right' });
+            if (quote.quoteName) {
+                doc.setFontSize(10);
+                doc.text(`Project: ${quote.quoteName}`, margin, y);
+            }
+            y += 8;
+
+            doc.setDrawColor(200);
+            doc.setLineWidth(0.5);
+            doc.rect(margin, y, pageWidth - 2 * margin, 30);
+            doc.setFontSize(9);
+            doc.setTextColor(60, 60, 60);
+            doc.setFont('helvetica', 'bold');
+            doc.text('Customer Details', margin + 4, y + 8);
+            doc.setFont('helvetica', 'normal');
+            doc.text(`Name: ${quote.customerName}`, margin + 4, y + 16);
+            doc.text(`Phone: ${quote.customerPhone || 'N/A'}`, margin + 4, y + 22);
+            doc.text(`Address: ${quote.customerAddress || 'N/A'}`, pageWidth / 2 + 10, y + 16);
+            doc.text(`Date: ${formatDate(quote.date)}`, pageWidth / 2 + 10, y + 22);
+            y += 38;
+
+            const tableData = quote.items.map(item => [
+                item.name + ' (' + item.unit + ')',
+                item.quantity.toString(),
+                '₦' + formatCurrency(item.price),
+                '₦' + formatCurrency(item.total)
+            ]);
+            tableData.push(['', '', 'Subtotal:', '₦' + formatCurrency(quote.subtotal)]);
+            const extras = (quote.labour || 0) + (quote.transport || 0);
+            if (extras > 0) tableData.push(['', '', 'Labour + Transport:', '₦' + formatCurrency(extras)]);
+            if (quote.discount > 0) tableData.push(['', '', 'Discount:', '-₦' + formatCurrency(quote.discount)]);
+            if (quote.vatRate > 0) tableData.push(['', '', `VAT (${quote.vatRate}%):`, '₦' + formatCurrency(quote.vatAmount)]);
+            tableData.push(['', '', 'GRAND TOTAL:', '₦' + formatCurrency(quote.grandTotal)]);
+
+            doc.autoTable({
+                startY: y,
+                head: [['Item', 'Qty', 'Unit Price', 'Total']],
+                body: tableData,
+                margin: { left: margin, right: margin },
+                theme: 'grid',
+                headStyles: {
+                    fillColor: [26, 35, 126],
+                    textColor: [255, 255, 255],
+                    fontStyle: 'bold',
+                    fontSize: 8
+                },
+                bodyStyles: { fontSize: 8, textColor: [50, 50, 50] },
+                columnStyles: {
+                    0: { cellWidth: 'auto' },
+                    1: { halign: 'center', cellWidth: 20 },
+                    2: { halign: 'right', cellWidth: 35 },
+                    3: { halign: 'right', cellWidth: 40 }
+                },
+                didParseCell: function(data) {
+                    if (data.row.index >= tableData.length - 5) data.cell.styles.fontStyle = 'bold';
+                    if (data.row.index === tableData.length - 1) {
+                        data.cell.styles.textColor = [245, 124, 0];
+                        data.cell.styles.fontSize = 9;
+                    }
+                }
+            });
+
+            y = doc.lastAutoTable.finalY + 10;
+            doc.setFontSize(9);
+            doc.setTextColor(60, 60, 60);
+            doc.setFont('helvetica', 'bold');
+            doc.text('Payment Details', margin, y);
+            y += 6;
+            doc.setFont('helvetica', 'normal');
+            const bankLines = APP.settings.bank.split('\n');
+            bankLines.forEach(line => { doc.text(line, margin, y); y += 5; });
+
+            y += 8;
+            doc.text('Authorized Signature: ___________________________', margin, y);
+            y += 6;
+            doc.text('Date: ___________________________', margin, y);
+
+            doc.setFontSize(7);
+            doc.setTextColor(150, 150, 150);
+            doc.text('This is Valid for 14 days.', pageWidth / 2, pageHeight - 10, { align: 'center' });
+
             doc.save(`Quotation_${quote.quoteNumber}.pdf`);
             showToast('PDF downloaded! 📄', 'success');
         }
@@ -1922,52 +1807,33 @@
 
         function testSheetsConnection() {
             const url = document.getElementById('setting-sheets-url').value;
-            if (!url) {
-                showToast('Please enter Google Apps Script URL', 'error');
-                return;
-            }
-            showToast('Testing connection... (Check console)', 'info');
+            if (!url) { showToast('Enter Sheets URL', 'error'); return; }
             fetch(url + '?action=test')
                 .then(r => r.json())
-                .then(data => showToast('Connection successful! ✅', 'success'))
-                .catch(() => showToast('Connection failed. Check URL.', 'error'));
+                .then(() => showToast('Connection OK ✅', 'success'))
+                .catch(() => showToast('Connection failed', 'error'));
         }
 
         function syncToSheets() {
             const url = APP.settings.sheetsUrl || document.getElementById('setting-sheets-url').value;
-            if (!url) {
-                showToast('Please configure Google Sheets URL in Settings', 'error');
-                return;
-            }
-            showToast('Syncing to Google Sheets...', 'info');
+            if (!url) { showToast('Configure Sheets URL', 'error'); return; }
             fetch(url, {
                 method: 'POST',
-                body: JSON.stringify({
-                    action: 'syncAll',
-                    materials: APP.materials,
-                    quotations: APP.quotations
-                })
+                body: JSON.stringify({ action: 'syncAll', materials: APP.materials, quotations: APP.quotations })
             })
             .then(r => r.json())
-            .then(() => showToast('Synced successfully! ☁️', 'success'))
-            .catch(() => showToast('Sync failed. Check connection.', 'error'));
+            .then(() => showToast('Synced! ☁️', 'success'))
+            .catch(() => showToast('Sync failed', 'error'));
         }
 
         function exportAllData() {
-            const data = {
-                materials: APP.materials,
-                quotations: APP.quotations,
-                settings: APP.settings,
-                exportDate: new Date().toISOString()
-            };
+            const data = { materials: APP.materials, quotations: APP.quotations, settings: APP.settings };
             const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-            const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
-            a.href = url;
+            a.href = URL.createObjectURL(blob);
             a.download = `solarquote_backup_${new Date().toISOString().split('T')[0]}.json`;
             a.click();
-            URL.revokeObjectURL(url);
-            showToast('Data exported! 📥', 'success');
+            showToast('Exported! 📥', 'success');
         }
 
         function importAllData(event) {
@@ -1982,42 +1848,34 @@
                     if (data.settings) APP.settings = { ...APP.settings, ...data.settings };
                     saveAllData();
                     updateAllUI();
-                    showToast('Data imported successfully! 📤', 'success');
-                } catch (err) {
-                    showToast('Invalid file format', 'error');
-                }
+                    showToast('Imported! 📤', 'success');
+                } catch { showToast('Invalid file', 'error'); }
             };
             reader.readAsText(file);
             event.target.value = '';
         }
 
         function resetAllData() {
-            if (confirm('⚠️ This will delete ALL data. Are you absolutely sure?')) {
-                if (confirm('Final warning: This cannot be undone. Continue?')) {
-                    localStorage.removeItem('sq_materials');
-                    localStorage.removeItem('sq_quotations');
-                    localStorage.removeItem('sq_settings');
-                    APP.materials = [];
-                    APP.quotations = [];
-                    APP.currentQuoteItems = [];
-                    populateDefaultMaterials();
-                    saveAllData();
-                    updateAllUI();
-                    navigateTo('dashboard');
-                    showToast('All data has been reset', 'info');
-                }
+            if (confirm('Delete ALL data?') && confirm('Final warning!')) {
+                localStorage.clear();
+                APP.materials = [];
+                APP.quotations = [];
+                APP.currentQuoteItems = [];
+                populateDefaultMaterials();
+                saveAllData();
+                updateAllUI();
+                navigateTo('dashboard');
+                showToast('Data reset', 'info');
             }
         }
 
-        // ==================== UTILITIES ====================
         function formatCurrency(amount) {
             return Number(amount).toLocaleString('en-NG', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
         }
 
         function formatDate(dateString) {
             if (!dateString) return 'N/A';
-            const d = new Date(dateString);
-            return d.toLocaleDateString('en-NG', { year: 'numeric', month: 'short', day: 'numeric' });
+            return new Date(dateString).toLocaleDateString('en-NG', { year: 'numeric', month: 'short', day: 'numeric' });
         }
 
         function showToast(message, type = 'info') {
@@ -2034,21 +1892,9 @@
             }, 3000);
         }
 
-        // ==================== START APP ====================
         document.addEventListener('DOMContentLoaded', initApp);
-
-        // Close modals when clicking overlay
-        document.getElementById('material-modal').addEventListener('click', function(e) {
-            if (e.target === this) closeMaterialForm();
-        });
-        document.getElementById('view-quote-modal').addEventListener('click', function(e) {
-            if (e.target === this) closeViewQuote();
-        });
-
-        console.log('☀️ SolarQuote Pro - Ready');
-        console.log('📊 Dashboard | 📝 New Quote | 📋 History | 📦 Materials | ⚙️ Settings');
-        console.log('💾 Data stored in browser localStorage');
-        console.log('☁️ Google Sheets sync available in Settings');
+        document.getElementById('material-modal').addEventListener('click', function(e) { if (e.target === this) closeMaterialForm(); });
+        document.getElementById('view-quote-modal').addEventListener('click', function(e) { if (e.target === this) closeViewQuote(); });
     </script>
 </body>
 </html>
