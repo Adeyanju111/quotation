@@ -827,6 +827,29 @@
                 padding: 10px;
             }
         }
+        /* Better mobile responsiveness for letterhead mapping */
+@media (max-width: 600px) {
+    #letterhead-mapping-area {
+        min-height: 180px !important;
+    }
+    
+    #letterhead-zone {
+        font-size: 8px !important;
+    }
+    
+    #zone-label {
+        font-size: 8px !important;
+    }
+    
+    .resize-handle {
+        height: 12px !important; /* Easier to grab on touch */
+    }
+    
+    .form-row-4 {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 6px !important;
+    }
+}
     </style>
 </head>
 <body>
